@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock! Paper! Scissors!</title>
+</head>
+
+<body>
+  <script>
+ 	
+  function computerPlay() {  // choisit aléatoirement le mouvement de l'ordinateur
+    let play = Math.random()
+     if (play < 0.333){
+       return "rock";
+     } else if (play < 0.666) {
+       return "paper";
+     } else {
+      return "scissors";
+     }
+    }
+  
+  let computerSelection = computerPlay();
+
+  const playerSelection = "rock";
+
+  let win = "You win ! " + playerSelection + " beats " + computerSelection
+  let lose = "You lose ! " + playerSelection + " is beaten by " + computerSelection
+  let draw = "That's a draw ! You both chose " + playerSelection
+
+  function playRound(playerSelection, computerSelection) {
+   if(playerSelection == computerSelection) {
+     return draw;
+  } else {return lose}
+  }
+
+  console.log(computerSelection)  
+  console.log(playRound())
+
+  </script>
+</body>
+</html>
+
