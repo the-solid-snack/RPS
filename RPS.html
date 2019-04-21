@@ -18,21 +18,34 @@
      }
     }
   
-  let computerSelection = computerPlay();
-
-  const playerSelection = "rock";
+  let computerSelection;
+  let playerSelection;
 
   let win = "You win ! " + playerSelection + " beats " + computerSelection
   let lose = "You lose ! " + playerSelection + " is beaten by " + computerSelection
   let draw = "That's a draw ! You both chose " + playerSelection
 
   function playRound(playerSelection, computerSelection) {
+  
+  computerSelection = computerPlay();
+  playerSelection = "Rock";
+
+  console.log("computerSelection dans Play = " + computerSelection)
+  console.log("playerSelection dans Play = " + playerSelection)
+
    if(playerSelection == computerSelection) {
      return draw;
-  } else {return lose}
+  } else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" && playerSelection == "scissors" && computerSelection == "rock") {
+     return lose;
+  } else {
+    return win;
+  }
   }
 
-  console.log(computerSelection)  
+  
+
+  console.log("computerSelection = " + computerSelection)
+  console.log("playerSelection = " + playerSelection)
   console.log(playRound())
 
   </script>
