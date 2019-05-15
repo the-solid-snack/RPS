@@ -5,48 +5,71 @@
 </head>
 
 <body>
+  <h1>This is a game of Shi Fu Mi</h1>
+
+  <p>Please select your move</p>
+
+  <button id=rock onClick="choose('rock')">Rock</button>
+  <button id=paper onClick="choose('paper')">Paper</button>
+  <button id=scissors onClick="choose('scissors')">Scissors</button>
+
+
   <script>
  	
-  function computerPlay() {  // choisit aléatoirement le mouvement de l'ordinateur
-    let play = Math.random()
-     if (play < 0.333){
-       return "rock";
-     } else if (play < 0.666) {
-       return "paper";
-     } else {
-      return "scissors";
-     }
-    }
+// DO NOT FORGET Remove console.log so player can't cheat by peeking what's in cpu
+
+let cpu = Math.random(); // Détermine "cpu", le move de l'ordinateur
+if (cpu < .34) {
+  cpu = "Rock";
+
+} else if (cpu < .67) {
+  cpu = "Paper";
+
+} else {cpu = "Scissors";}
+
+console.log("cpu= " + cpu);
+
+let hmn; // Détermine "hmn", le move du joueur
+
+function rock() {
+  hmn = "Rock";
+}
+
+function paper() {
+  hmn = "Paper";
+}
+
+function scissors() {
+  hmn = "Scissors";
+}
+
+function playRound(hmn, cpu) {
   
-  let computerSelection;
-  let playerSelection;
+if (hmn === cpu) {
+  return "draw";
 
-  let win = "You win ! " + playerSelection + " beats " + computerSelection
-  let lose = "You lose ! " + playerSelection + " is beaten by " + computerSelection
-  let draw = "That's a draw ! You both chose " + playerSelection
+} else if (cpu === "Rock") { 
+  if (hmn === "Paper") {
+    return "win";
+  } else {return "lose";}
 
-  function playRound(playerSelection, computerSelection) {
-  
-  computerSelection = computerPlay();
-  playerSelection = "Rock";
+} else if (cpu === "Paper") {
+  if (hmn === "Scisors") {
+    return "win";
+  } else {return "lose";}
 
-  console.log("computerSelection dans Play = " + computerSelection)
-  console.log("playerSelection dans Play = " + playerSelection)
+} else if (cpu === "Scissors") {
+  if (hmn === "Rock") {
+    return "win";
+  } else {return "lose";}
+}
 
-   if(playerSelection == computerSelection) {
-     return draw;
-  } else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" && playerSelection == "scissors" && computerSelection == "rock") {
-     return lose;
-  } else {
-    return win;
-  }
-  }
+}
 
-  
+let result = playRound(hmn, cpu);
 
-  console.log("computerSelection = " + computerSelection)
-  console.log("playerSelection = " + playerSelection)
-  console.log(playRound())
+console.log("hmn = " + hmn);
+console.log("result = " + result);
 
   </script>
 </body>
