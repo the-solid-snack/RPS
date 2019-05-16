@@ -1,77 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Rock! Paper! Scissors!</title>
 </head>
 
 <body>
-  <h1>This is a game of Shi Fu Mi</h1>
+  <h1>This is a game of Shi Fu Mi!</h1>
 
-  <p>Please select your move</p>
-
-  <button id=rock onClick="choose('rock')">Rock</button>
-  <button id=paper onClick="choose('paper')">Paper</button>
-  <button id=scissors onClick="choose('scissors')">Scissors</button>
-
-
-  <script>
- 	
-// DO NOT FORGET Remove console.log so player can't cheat by peeking what's in cpu
-
-let cpu = Math.random(); // Détermine "cpu", le move de l'ordinateur
-if (cpu < .34) {
-  cpu = "Rock";
-
-} else if (cpu < .67) {
-  cpu = "Paper";
-
-} else {cpu = "Scissors";}
-
-console.log("cpu= " + cpu);
-
-let hmn; // Détermine "hmn", le move du joueur
-
-function rock() {
-  hmn = "Rock";
-}
-
-function paper() {
-  hmn = "Paper";
-}
-
-function scissors() {
-  hmn = "Scissors";
-}
-
-function playRound(hmn, cpu) {
+  <p>Please select your move:</p>
   
-if (hmn === cpu) {
-  return "draw";
+  <br><br>
 
-} else if (cpu === "Rock") { 
-  if (hmn === "Paper") {
-    return "win";
-  } else {return "lose";}
+<div class="choices">
+  <div class="choices" id="r">
+    <img src="rock.jpg" alt="" height="80" width="80">
+  </div>
+  <div class="choices" id="p">
+      <img src="paper.jpg" alt="" height="80" width="80">
+  </div>
+  <div class="choices" id="s">
+      <img src="scissors.jpg" alt="" height="80" width="80">
+  </div>
+</div>
 
-} else if (cpu === "Paper") {
-  if (hmn === "Scisors") {
-    return "win";
-  } else {return "lose";}
+<div class="commentary">
+    <p>Hi! Let's compete with computer.</p>
+</div>
 
-} else if (cpu === "Scissors") {
-  if (hmn === "Rock") {
-    return "win";
-  } else {return "lose";}
-}
-
-}
-
-let result = playRound(hmn, cpu);
-
-console.log("hmn = " + hmn);
-console.log("result = " + result);
-
-  </script>
+<div class="scoreBoard">
+  <p>hmnScore=<span id="hmnScore"></span> : <span id="cpuScore">=cpuScore</span></p>
+</div>
+ 	
+<script src="app.js" charset="utf-8"></script>
 </body>
-</html>
 
+
+</html>
