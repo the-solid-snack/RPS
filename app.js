@@ -25,9 +25,9 @@ function cpuChoice() {
 
 // Displays results
 function draw(hmn) {
-  if (hmn === r) {
+  if (hmn === "r") {
     commentary.innerHTML = "Draw ! You both chose Rock";
-  } else if (hmn === p) {
+  } else if (hmn === "p") {
     commentary.innerHTML = "Draw ! You both chose Paper";
   } else {
     commentary.innerHTML = "Draw ! You both chose Scissors";
@@ -37,9 +37,9 @@ function draw(hmn) {
 
 function win(hmn,cpu) {
   hmnScore ++;
-  if (hmn === r) {
+  if (hmn === "r") {
     commentary.innerHTML = "Win ! Rock beats Scissors";
-  } else if (hmn === p) {
+  } else if (hmn === "p") {
     commentary.innerHTML = "Win ! Paper beats Rock";
   } else {
     commentary.innerHTML = "Win ! Scissors beats Paper";
@@ -50,9 +50,9 @@ function win(hmn,cpu) {
 
 function lose(hmn, cpu) {
   cpuScore ++;
-  if (hmn === r) {
+  if (hmn === "r") {
     commentary.innerHTML = "Lose ! Rock gets wrapped by Paper";
-  } else if (hmn === p) {
+  } else if (hmn === "p") {
     commentary.innerHTML = "Lose ! Paper gets cut by Scissors";
   } else {
     commentary.innerHTML = "Lose ! Scissors get crushed by Rock";
@@ -63,8 +63,8 @@ function lose(hmn, cpu) {
 
 // Determines the result, depending on what the player clicks
 function game(hmn) {
-  const cpu = cpuChoice()
-  const result = hmn+cpu
+  const cpu = cpuChoice();
+  const result = hmn+cpu;
 
   if (result == "rr" || result == "pp" || result == "ss") {
     console.log(result);
@@ -84,13 +84,13 @@ function game(hmn) {
 // main function
 function main() {
   rock_div.addEventListener('click', function () {
-    game('r');
+    game("r");
   })
   paper_div.addEventListener('click', function () {
-    game('p');
+    game("p");
   })
   scissors_div.addEventListener('click', function () {
-    game('s');
+    game("s");
   })
 }
 

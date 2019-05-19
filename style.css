@@ -1,0 +1,65 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    background-color: grey;
+    text-align: center;
+    width: 100%;
+    margin: 0%;
+}
+
+.rules {
+    background-color: blue;
+    text-align: center;
+}
+
+.interface {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hmnOptions {
+    width: 30%;
+    height: 250px;
+    background-color: brown;
+}
+
+    #p {
+        margin-left: 30%;
+    }
+
+    #s {
+        margin-left: 60%;
+    }
+
+.vs{
+    width: 20%;
+    height: 250px;
+    background-color: aqua;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+    .hmnScore, .cpuScore, .commentary {
+        text-align: center;
+    }
+
+.cpuOptions{
+    width: 30%;
+    height: 250px;
+    background-color: blue;
+}
+
+    #cr {
+        margin-left: 85%;
+    }
+    
+    #cp {
+        margin-left: 50%;
+    }
+
+    #cs {
+        margin-left: 20%;
+    }

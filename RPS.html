@@ -2,31 +2,61 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <title>Rock! Paper! Scissors!</title>
 </head>
 
 <body>
-  <h1>This is a game of Shi Fu Mi!</h1>
+  <br><br><h1>This is a game of Shi Fu Mi!</h1><br><br>
+
+  <div class="rules">
+    <p>Rules are simple:</p>
+    <p>🗿 Rock beats Scissors ✂️</p>
+    <p>📜 Paper beats Rock 🗿</p>
+    <p>✂️ Scissors beat Paper 📜</p>
+  </div>
 
   <p>Please select your move:</p>
   
   <br><br>
 
-<div class="choices">
-  <div class="choices" id="r">
-    <img src="rock.jpg" alt="" height="80" width="80">
+<div class="interface">
+  <div class="hmnOptions">
+    <div id="r">
+      <img src="rock.jpg" alt="" height="80" width="80">
+    </div>
+    <div id="p">
+        <img src="paper.jpg" alt="" height="80" width="80">
+    </div>
+    <div id="s">
+        <img src="scissors.jpg" alt="" height="80" width="80">
+    </div>
   </div>
-  <div class="choices" id="p">
+
+  <div class="vs">
+    <h1 class="player">HUMAN</h1>
+    <p class="hmnScore">- <span id="hmnScore"></span> -</p>
+    <div class="commentary">
+        <p>Vs.<p>
+    </div>
+    <p class="cpuScore">- <span id="cpuScore"></span> -</p>
+    <h1 class="player">TERMINATOR</h1>
+  </div>
+
+  <div class="cpuOptions">
+    <div id="cr">
+      <img src="rock.jpg" alt="" height="80" width="80">
+    </div>
+    <div id="cp">
       <img src="paper.jpg" alt="" height="80" width="80">
-  </div>
-  <div class="choices" id="s">
+    </div>
+    <div id="cs">
       <img src="scissors.jpg" alt="" height="80" width="80">
-  </div>
+    </div>
+    </div>
 </div>
 
-<div class="commentary">
-    <p>Hi! Let's compete with computer.</p>
-</div>
+
 
 <div class="scoreBoard">
   <p>hmnScore=<span id="hmnScore"></span> : <span id="cpuScore">=cpuScore</span></p>
