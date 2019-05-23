@@ -8,6 +8,7 @@ let hmn;
 const commentary = document.querySelector(".commentary");
 let hmnScore = 0;
 let cpuScore = 0;
+let roundsPlayed = 10;
 
 // Determines computer's play
 function cpuChoice() {
@@ -23,8 +24,10 @@ function cpuChoice() {
   }
 }
 
-// Displays results
+// function called when draw
 function draw(hmn) {
+  roundsPlayed --;
+  console.log("roundsPlayed =" + roundsPlayed);
   if (hmn === "r") {
     commentary.innerHTML = "Draw ! You both chose Rock";
   } else if (hmn === "p") {
@@ -33,9 +36,18 @@ function draw(hmn) {
     commentary.innerHTML = "Draw ! You both chose Scissors";
   }
   console.log("draw, you both chose " + hmn);
+  
+  if (roundsPlayed === 0 && hmnScore > cpuScore) {
+    finalWin();
+  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
+    finalLose();
+  }
 }
 
+// function called when human wins
 function win(hmn,cpu) {
+  roundsPlayed --;
+  console.log("roundsPlayed =" + roundsPlayed);
   hmnScore ++;
   if (hmn === "r") {
     commentary.innerHTML = "Win ! Rock beats Scissors";
@@ -46,9 +58,18 @@ function win(hmn,cpu) {
   }
   document.getElementById("hmnScore").innerHTML = hmnScore; // update le score
   console.log("win, " + hmn + " wins over " + cpu);
+
+  if (roundsPlayed === 0 && hmnScore > cpuScore) {
+    finalWin();
+  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
+    finalLose();
+  }
 }
 
+// function called when human loses
 function lose(hmn, cpu) {
+  roundsPlayed --;
+  console.log("roundsPlayed =" + roundsPlayed);
   cpuScore ++;
   if (hmn === "r") {
     commentary.innerHTML = "Lose ! Rock gets wrapped by Paper";
@@ -59,6 +80,12 @@ function lose(hmn, cpu) {
   }
   document.getElementById("cpuScore").innerHTML = cpuScore;
   console.log("lose, " + hmn + " is defeated by " + cpu);
+
+  if (roundsPlayed === 0 && hmnScore > cpuScore) {
+    finalWin();
+  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
+    finalLose();
+  }
 }
 
 // Determines the result, depending on what the player clicks
@@ -94,5 +121,14 @@ function main() {
   })
 }
 
+function finalWin() {
+    console.log("YEAH");
+}
+
+function finalLose() {
+  console.log("NAH");
+}
+
 main();
+
 
