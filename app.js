@@ -5,8 +5,25 @@ const scissors_div = document.getElementById("scissors");
 const commentary = document.querySelector(".commentary");
 let hmnScore = 0;
 let cpuScore = 0;
-let roundsPlayed = 10;
+
 let hmn;
+
+
+const interface = document.querySelector(".interface");
+
+const gagne = document.getElementById("boutonGagne");
+const hmnOptions = document.querySelector(".hmnOptions");
+const vs = document.querySelector(".vs");
+const cpuOptions = document.querySelector(".cpuOptions");
+
+boutonGagne.addEventListener("click", function () {
+
+  console.log("j'ai entendu un click");
+interface.removeChild(hmnOptions);
+interface.removeChild(vs);
+interface.removeChild(cpuOptions);
+
+})
 
 // Determines computer's action
 function cpuChoice() {
@@ -19,12 +36,15 @@ function cpuChoice() {
 }
 
 // Looking to determine the player's action
+for (let roundsPlayed = 10;roundsPlayed > 0; roundsPlayed--) {} 
+
 rock_div.addEventListener('click', function () {game("rock");})
 paper_div.addEventListener('click', function () {game("paper");})
 scissors_div.addEventListener('click', function () {game("scissors");})
 
 
 // Determines the result, depending on what the player clicks
+
 function game(hmn) {
   const cpu = cpuChoice();
   const result = hmn+cpu;
@@ -41,14 +61,12 @@ function game(hmn) {
     console.log(result);
     lose(hmn,cpu);
     }
+  }
   
-}
+  
 
 // function called when draw
 function draw(hmn) {
-  roundsPlayed --;
-  console.log("roundsPlayed =" + roundsPlayed);
-  
   if (hmn === "rock") {
     commentary.innerHTML = "Draw ! You both chose Rock";
   } else if (hmn === "paper") {
@@ -57,18 +75,11 @@ function draw(hmn) {
     commentary.innerHTML = "Draw ! You both chose Scissors";
   }
   console.log("draw, you both chose " + hmn);
-  
-  if (roundsPlayed === 0 && hmnScore > cpuScore) {
-    finalWin();
-  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
-    finalLose();
-  } 
+ 
 }
 
 // function called when human wins
 function win(hmn,cpu) {
-  roundsPlayed --;
-  console.log("roundsPlayed =" + roundsPlayed);
   hmnScore ++;
   if (hmn === "rock") {
     commentary.innerHTML = "Win ! Rock beats Scissors";
@@ -79,18 +90,10 @@ function win(hmn,cpu) {
   }
   document.getElementById("hmnScore").innerHTML = hmnScore; // update le score
   console.log("win, " + hmn + " wins over " + cpu);
-
-  if (roundsPlayed === 0 && hmnScore > cpuScore) {
-    finalWin();
-  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
-    finalLose();
-  }
 }
 
 // function called when human loses
 function lose(hmn, cpu) {
-  roundsPlayed --;
-  console.log("roundsPlayed =" + roundsPlayed);
   cpuScore ++;
   if (hmn === "rock") {
     commentary.innerHTML = "Lose ! Rock gets wrapped by Paper";
@@ -101,27 +104,7 @@ function lose(hmn, cpu) {
   }
   document.getElementById("cpuScore").innerHTML = cpuScore;
   console.log("lose, " + hmn + " is defeated by " + cpu);
-
-  if (roundsPlayed === 0 && hmnScore > cpuScore) {
-    finalWin();
-  } else if (roundsPlayed === 0  && hmnScore < cpuScore) {
-    finalLose();
-  }
 }
-
-
-
-
-
-
-function finalWin() {
-    console.log("YEAH");
-}
-
-function finalLose() {
-  console.log("NAH");
-}
-
 
 
 
